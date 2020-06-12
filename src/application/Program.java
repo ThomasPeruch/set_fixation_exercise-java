@@ -4,19 +4,19 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import entities.Student;
-
 public class Program {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Set<Student> students = new HashSet<>();
+		Set<Integer> a = new HashSet<>();
+		Set<Integer> b = new HashSet<>();
+		Set<Integer> c = new HashSet<>();
 		
 		System.out.print("How many Students for course A ? ");
 		
 		int n = sc.nextInt();
 		for(int i = 0 ; i < n ; i++) {
 			System.out.print("Enter student ID : ");
-			students.add(new Student(sc.nextInt()));	
+			a.add(sc.nextInt());	
 		}
 		
 		System.out.print("How many Students for course B ? ");
@@ -24,7 +24,7 @@ public class Program {
 		n = sc.nextInt();
 		for(int i = 0 ; i < n ; i++) {
 			System.out.print("Enter student ID : ");
-			students.add(new Student(sc.nextInt()));	
+			b.add(sc.nextInt());	
 		}
 		
 		System.out.print("How many Students for course C ? ");
@@ -32,10 +32,15 @@ public class Program {
 		n = sc.nextInt();
 		for(int i = 0 ; i < n ; i++) {
 			System.out.print("Enter student ID : ");
-			students.add(new Student(sc.nextInt()));	
+			c.add(sc.nextInt());	
 		}
+		
 		sc.close();
 		
-		System.out.println("Total students : " + students.size());
+		Set<Integer> total = new HashSet<>(a);
+		total.addAll(b);
+		total.addAll(c);
+		
+		System.out.println("Total students : " + total.size());
 	}
 }
